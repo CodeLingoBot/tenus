@@ -143,7 +143,7 @@ func (veth *VethPair) NetInterface() *net.Interface {
 	return veth.ifc
 }
 
-// NetInterface returns veth link's peer network interface
+// PeerNetInterface returns veth link's peer network interface
 func (veth *VethPair) PeerNetInterface() *net.Interface {
 	return veth.peerIfc
 }

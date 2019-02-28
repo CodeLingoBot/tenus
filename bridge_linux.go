@@ -59,7 +59,7 @@ func NewBridge() (Bridger, error) {
 	}, nil
 }
 
-// NewBridge creates new network bridge on Linux host with the name passed as a parameter.
+// NewBridgeWithName creates new network bridge on Linux host with the name passed as a parameter.
 // It is equivalent of running: ip link add name ${ifcName} type bridge
 // It returns error if the bridge can not be created.
 func NewBridgeWithName(ifcName string) (Bridger, error) {
@@ -113,7 +113,7 @@ func AddToBridge(netIfc, netBridge *net.Interface) error {
 	return netlink.NetworkSetMaster(netIfc, netBridge)
 }
 
-// AddToBridge adds network interfaces to network bridge.
+// RemoveFromBridge adds network interfaces to network bridge.
 // It is equivalent of running: ip link set dev ${netIfc name} nomaster
 // It returns error when it fails to remove the network interface from the bridge.
 func RemoveFromBridge(netIfc *net.Interface) error {
